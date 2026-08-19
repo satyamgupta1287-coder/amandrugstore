@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMAN MEDICAL AGENCY — Stock &amp; Composition Finder</title>
+<title>AMAN MEDICAL AGENCY — Temporarily Unavailable</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,393 +22,36 @@
     --shadow: 0 1px 2px rgba(27,43,35,0.06), 0 8px 24px -12px rgba(27,43,35,0.18);
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;height:100%;}
   body{
     background:var(--paper);
     color:var(--ink);
     font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
-  ::selection{ background:var(--amber-soft); }
-
-  .topbar{
-    border-bottom:1px solid var(--hairline);
+  .card{
     background:var(--panel);
-    position:sticky; top:0; z-index:20;
+    border:1px solid var(--hairline);
+    border-radius:12px;
+    padding:28px;
+    max-width:820px;
+    box-shadow:var(--shadow);
+    text-align:center;
   }
-  .topbar-inner{
-    max-width:1180px; margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif; font-weight:600; font-size:18px; letter-spacing:0.2px;
-  }
-  .brand .mark{
-    width:30px; height:30px; border-radius:8px;
-    background:var(--green); color:#fff; display:flex; align-items:center; justify-content:center;
-    font-family:'Fraunces', serif; font-weight:700; font-size:15px; flex:none;
-  }
-  .brand small{
-    display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:11px;
-    color:var(--ink-soft); letter-spacing:0.08em; text-transform:uppercase; margin-top:1px;
-  }
-  .stat-pill{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
-    background:var(--paper); border:1px solid var(--hairline); border-radius:999px;
-    padding:6px 12px; white-space:nowrap;
-  }
-
-  .hero{
-    max-width:1180px; margin:0 auto; padding:44px 24px 20px;
-  }
-  .hero h1{
-    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(26px,4vw,38px);
-    margin:0 0 6px; line-height:1.15;
-  }
-  .hero p.sub{
-    margin:0 0 26px; color:var(--ink-soft); font-size:15px; max-width:560px;
-  }
-
-  .search-card{
-    background:var(--panel); border:1px solid var(--hairline); border-radius:14px;
-    box-shadow:var(--shadow); padding:18px; position:relative;
-  }
-  .search-card::before{
-    content:"Rx";
-    position:absolute; top:-11px; left:18px;
-    background:var(--green); color:#fff;
-    font-family:'Fraunces', serif; font-weight:700; font-size:12px;
-    padding:3px 10px; border-radius:6px; letter-spacing:0.05em;
-  }
-  .search-row{
-    display:flex; gap:10px; flex-wrap:wrap;
-  }
-  .search-field{
-    flex:1 1 320px; position:relative;
-  }
-  .search-field input{
-    width:100%; font-family:'Inter',sans-serif; font-size:15.5px;
-    padding:13px 14px 13px 40px; border-radius:9px; border:1.5px solid var(--hairline);
-    background:var(--paper); color:var(--ink); outline:none;
-    transition:border-color .15s ease, box-shadow .15s ease;
-  }
-  .search-field input:disabled{ opacity:.6; }
-  .search-field input:focus{
-    border-color:var(--green); box-shadow:0 0 0 3px rgba(47,111,78,0.12);
-  }
-  .search-field svg{
-    position:absolute; left:13px; top:50%; transform:translateY(-50%);
-    width:17px; height:17px; color:var(--ink-soft);
-  }
-  select#companyFilter{
-    font-family:'Inter',sans-serif; font-size:14.5px; padding:13px 34px 13px 14px;
-    border-radius:9px; border:1.5px solid var(--hairline); background:var(--paper);
-    color:var(--ink); outline:none; max-width:240px;
-    appearance:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234B5A50'><path d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%234B5A50' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-repeat:no-repeat; background-position:right 12px center;
-  }
-  .chip-row{
-    display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;
-  }
-  .chip{
-    font-family:'Inter',sans-serif; font-size:13px; font-weight:500;
-    padding:7px 13px; border-radius:999px; border:1.5px solid var(--hairline);
-    background:var(--paper); color:var(--ink-soft); cursor:pointer; user-select:none;
-    transition:all .12s ease;
-  }
-  .chip:hover{ border-color:var(--green); color:var(--green-deep); }
-  .chip.active{ background:var(--green); border-color:var(--green); color:#fff; }
-
-  .results-wrap{
-    max-width:1180px; margin:0 auto; padding:22px 24px 60px;
-  }
-  .results-meta{
-    display:flex; align-items:baseline; justify-content:space-between;
-    margin-bottom:12px; flex-wrap:wrap; gap:8px;
-  }
-  .results-meta .count{
-    font-size:13px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;
-  }
-  .results-meta .count b{ color:var(--ink); font-weight:600; }
-
-  .table-shell{
-    background:var(--panel); border:1px solid var(--hairline); border-radius:12px;
-    overflow:hidden; box-shadow:var(--shadow);
-  }
-  table{ width:100%; border-collapse:collapse; }
-  thead th{
-    position:sticky; top:0; background:var(--green-deep); color:#fff;
-    text-align:left; font-family:'Inter',sans-serif; font-weight:600; font-size:11.5px;
-    letter-spacing:0.05em; text-transform:uppercase; padding:12px 14px; white-space:nowrap;
-  }
-  tbody td{
-    padding:12px 14px; border-top:1px solid var(--hairline); font-size:13.5px;
-    vertical-align:top;
-  }
-  tbody tr:hover{ background:#FBFAF6; }
-  .pname{ font-weight:600; color:var(--ink); }
-  .pname .pack{
-    display:block; font-weight:400; font-size:11.5px; color:var(--ink-soft);
-    font-family:'IBM Plex Mono', monospace; margin-top:2px;
-  }
-  .comp{ color:var(--ink-soft); font-size:13px; max-width:340px; }
-  .mono{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); white-space:nowrap; }
-  .stock-dot{
-    display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px;
-    vertical-align:middle;
-  }
-  .dot-in{ background:var(--green); }
-  .dot-zero{ background:#C9A227; }
-  .dot-neg{ background:var(--red); }
-  .qty-cell{ font-family:'IBM Plex Mono', monospace; font-size:13px; text-align:right; white-space:nowrap; }
-  mark{ background:var(--amber-soft); color:var(--ink); border-radius:3px; padding:0 1px; }
-
-  .empty-state{
-    padding:70px 20px; text-align:center; color:var(--ink-soft);
-  }
-  .empty-state .glyph{
-    font-family:'Fraunces', serif; font-size:34px; color:var(--hairline); margin-bottom:10px;
-  }
-  .empty-state p{ margin:4px 0 0; font-size:14px; }
-  .empty-state.is-error .glyph{ color:var(--red); }
-  .empty-state.is-error p.detail{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; margin-top:10px; color:var(--red); }
-
-  .load-more{
-    display:block; margin:18px auto 0; padding:11px 26px; border-radius:9px;
-    border:1.5px solid var(--green); background:var(--panel); color:var(--green-deep);
-    font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer;
-  }
-  .load-more:hover{ background:var(--green); color:#fff; }
-
-  footer{
-    text-align:center; padding:26px; color:var(--ink-soft); font-size:12px;
-    border-top:1px solid var(--hairline);
-  }
-
-  @media (max-width:640px){
-    .comp{ max-width:180px; }
-    thead th:nth-child(4), tbody td:nth-child(4){ display:none; }
-  }
+  .card h1{ font-family:'Fraunces', serif; margin:0 0 8px; font-size:26px; }
+  .card p{ margin:6px 0; color:var(--ink-soft); }
+  .contact{ margin-top:12px; font-weight:600; color:var(--green-deep); }
 </style>
 </head>
 <body>
-
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <div class="mark">Rx</div>
-      <div>
-        AMAN MEDICAL AGENCY
-        <small>Stock &amp; Composition Finder</small>
-      </div>
-    </div>
-    <div class="stat-pill" id="totalStat">Loading…</div>
+  <div class="card">
+    <h1>Server is under maintenance</h1>
+    <p>This website is temporarily unavailable.</p>
+    <p>Please contact the website provider for more detail.</p>
+    <p class="contact">Contact: Website Provider</p>
   </div>
-</div>
-
-<div class="hero">
-  <h1>Find any product by name or composition</h1>
-  <p class="sub">Search across the full stock ledger — type a brand name, a salt (e.g. "Paracetamol"), or a company to instantly filter the sheet.</p>
-
-  <div class="search-card">
-    <div class="search-row">
-      <div class="search-field">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <input type="text" id="searchInput" placeholder="Search product name or composition… e.g. Paracetamol, Meftal, Azithromycin" autocomplete="off" disabled>
-      </div>
-      <select id="companyFilter" disabled><option value="">All companies</option></select>
-    </div>
-    <div class="chip-row" id="stockChips">
-      <span class="chip active" data-stock="all">All stock</span>
-      <span class="chip" data-stock="in">In stock</span>
-      <span class="chip" data-stock="zero">Zero stock</span>
-      <span class="chip" data-stock="neg">Negative / shortage</span>
-    </div>
-  </div>
-</div>
-
-<div class="results-wrap">
-  <div class="results-meta">
-    <span class="count" id="resultsCount">Loading data.json…</span>
-  </div>
-  <div class="table-shell">
-    <table>
-      <thead>
-        <tr>
-          <th style="width:22%">Product</th>
-          <th style="width:26%">Composition</th>
-          <th>Company</th>
-          <th>Batch</th>
-          <th>Rate</th>
-          <th>Expiry</th>
-          <th style="text-align:right">Total Qty</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-    <div class="empty-state" id="emptyState" style="display:none;">
-      <div class="glyph">Rx</div>
-      <p id="emptyMsg">Nothing on the shelf matches that search.</p>
-      <p class="detail" id="emptyDetail"></p>
-    </div>
-  </div>
-  <button class="load-more" id="loadMoreBtn" style="display:none;">Show more results</button>
-</div>
-
-<footer>Merged from 9 stock statement sheets · AMAN MEDICAL AGENCY internal tool</footer>
-
-<script>
-(function(){
-  const tbody = document.getElementById('tbody');
-  const countEl = document.getElementById('resultsCount');
-  const emptyState = document.getElementById('emptyState');
-  const emptyMsg = document.getElementById('emptyMsg');
-  const emptyDetail = document.getElementById('emptyDetail');
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const searchInput = document.getElementById('searchInput');
-  const sel = document.getElementById('companyFilter');
-  const chips = document.querySelectorAll('.chip');
-  const totalStat = document.getElementById('totalStat');
-
-  let rows = [];
-  let stockMode = 'all';
-  let shown = 0;
-  const PAGE = 60;
-  let currentMatches = [];
-
-  function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-  function highlight(text, term){
-    if(!term) return escapeHtml(text);
-    const idx = text.toLowerCase().indexOf(term.toLowerCase());
-    if(idx === -1) return escapeHtml(text);
-    return escapeHtml(text.slice(0,idx)) + '<mark>' + escapeHtml(text.slice(idx, idx+term.length)) + '</mark>' + escapeHtml(text.slice(idx+term.length));
-  }
-  function stockClass(q){
-    if(q === null || q === undefined || q === '') return {dot:'dot-zero'};
-    if(q < 0) return {dot:'dot-neg'};
-    if(q === 0) return {dot:'dot-zero'};
-    return {dot:'dot-in'};
-  }
-  function matchesStock(q){
-    if(stockMode === 'all') return true;
-    if(stockMode === 'in') return q !== null && q !== undefined && q > 0;
-    if(stockMode === 'zero') return q === 0;
-    if(stockMode === 'neg') return q !== null && q !== undefined && q < 0;
-    return true;
-  }
-
-  function renderRows(term){
-    const frag = document.createDocumentFragment();
-    const slice = currentMatches.slice(shown, shown + PAGE);
-    slice.forEach(r => {
-      const tr = document.createElement('tr');
-      const sc = stockClass(r.totalQty);
-      tr.innerHTML = `
-        <td><span class="pname">${highlight(r.product, term)}${r.pack ? '<span class="pack">'+escapeHtml(r.pack)+'</span>' : ''}</span></td>
-        <td class="comp">${highlight(r.comp, term)}</td>
-        <td class="mono">${escapeHtml(r.company)}</td>
-        <td class="mono">${escapeHtml(r.batch)}</td>
-        <td class="mono">${escapeHtml(r.rate)}</td>
-        <td class="mono">${escapeHtml(r.expiry)}</td>
-        <td class="qty-cell"><span class="stock-dot ${sc.dot}"></span>${r.totalQty === null || r.totalQty === undefined || r.totalQty === '' ? '—' : r.totalQty}</td>`;
-      frag.appendChild(tr);
-    });
-    tbody.appendChild(frag);
-    shown += slice.length;
-    loadMoreBtn.style.display = shown < currentMatches.length ? 'block' : 'none';
-  }
-
-  function runSearch(){
-    const term = searchInput.value.trim();
-    const termLower = term.toLowerCase();
-    const company = sel.value;
-
-    currentMatches = rows.filter(r => {
-      if(company && r.company !== company) return false;
-      if(!matchesStock(r.totalQty)) return false;
-      if(!termLower) return true;
-      return r.product.toLowerCase().includes(termLower) || r.comp.toLowerCase().includes(termLower);
-    });
-
-    tbody.innerHTML = '';
-    shown = 0;
-    countEl.innerHTML = `Showing <b>${Math.min(PAGE, currentMatches.length)}</b> of <b>${currentMatches.length.toLocaleString()}</b> matches`;
-
-    if(currentMatches.length === 0){
-      emptyState.classList.remove('is-error');
-      emptyMsg.textContent = 'Nothing on the shelf matches that search.';
-      emptyDetail.textContent = '';
-      emptyState.style.display = 'block';
-      loadMoreBtn.style.display = 'none';
-    } else {
-      emptyState.style.display = 'none';
-      renderRows(term);
-    }
-  }
-
-  function showLoadError(detail){
-    countEl.textContent = '';
-    totalStat.textContent = 'Failed to load data';
-    emptyState.classList.add('is-error');
-    emptyMsg.textContent = 'Could not load data.json — the product list failed to load.';
-    emptyDetail.textContent = detail || '';
-    emptyState.style.display = 'block';
-  }
-
-  fetch('data.json', { cache: 'no-store' })
-    .then(res => {
-      if(!res.ok) throw new Error('HTTP ' + res.status + ' while fetching data.json');
-      return res.json();
-    })
-    .then(raw => {
-      if(!Array.isArray(raw) || raw.length === 0) throw new Error('data.json loaded but contains no rows');
-      // columns: 0 Product,1 Composition,2 Pack,3 Company,4 Batch,5 Rate,6 Expiry,7 Qty1,8 Qty2,9 Qty3,10 TotalQty
-      rows = raw.map(r => ({
-        product: r[0] || '', comp: r[1] || '', pack: r[2] || '',
-        company: r[3] || '', batch: r[4] || '', rate: r[5] || '',
-        expiry: r[6] || '', totalQty: r[10]
-      }));
-
-      totalStat.textContent = rows.length.toLocaleString() + ' products indexed';
-
-      const companies = [...new Set(rows.map(r => r.company).filter(Boolean))].sort();
-      const frag = document.createDocumentFragment();
-      companies.forEach(c => {
-        const o = document.createElement('option');
-        o.value = c; o.textContent = c;
-        frag.appendChild(o);
-      });
-      sel.appendChild(frag);
-
-      searchInput.disabled = false;
-      sel.disabled = false;
-
-      searchInput.addEventListener('input', () => {
-        clearTimeout(window.__debounce);
-        window.__debounce = setTimeout(runSearch, 120);
-      });
-      sel.addEventListener('change', runSearch);
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          chips.forEach(c => c.classList.remove('active'));
-          chip.classList.add('active');
-          stockMode = chip.dataset.stock;
-          runSearch();
-        });
-      });
-      loadMoreBtn.addEventListener('click', () => renderRows(searchInput.value.trim()));
-
-      runSearch();
-    })
-    .catch(err => {
-      console.error('Failed to load product data:', err);
-      showLoadError(err.message);
-    });
-})();
-</script>
 </body>
 </html>
